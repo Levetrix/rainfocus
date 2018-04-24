@@ -8,39 +8,49 @@
   <body>
     <section id="main-content">
       <section id="info-section">
-        <div id="badge-container">
+        <div id="badge-container" class="tile grid-4">
           <div class="info-header">
             <h2>Badge Output</h2>
-            <figure class="edit"></figure>
+            <figure class="icon edit"></figure>
           </div>
           <div class="info-dictionary-container">
-            <dl class="info-dictionary">
-              <dt>First Name</dt>
-              <dd>Allison</dd>
-              <dt>Preferred First Name for Badge</dt>
-              <dd>Al</dd>
-              <dt>Last Name</dt>
-              <dd>Profitt</dd>
-              <dt>Company</dt>
-              <dd>Bio-IT World</dd>
-              <dt>Onsite - Badge Holders</dt>
-              <dd>JVA</dd>
-              <dt>Onsite - Aux</dt>
-              <dd>1</dd>
-            </dl>
+              <p>
+                <span class="term">First Name</span>
+                <span class="value">Allison</span>
+              </p>
+              <p>
+                <span class="term">Preferred First Name for Badge</span>
+                <span class="value">Al</span>
+              </p>
+              <p>
+                <span class="term">Last Name</span>
+                <span class="value">Profitt</span>
+              </p>
+              <p>
+                <span class="term">Company</span>
+                <span class="value">Bio-IT World</span>
+              </p>
+              <p>
+                <span class="term">Onsite - Badge Holders</span>
+                <span class="value">JVA</span>
+              </p>
+              <p>
+                <span class="term">Onsite - Aux</span>
+                <span class="value">1</span>
+              </p>
           </div>
           <div class="info-footer">
             <dl class="info-dictionary">
-              <dt>Check-in</dt>
-              <dd>09/16/16 7:51 AM</dd>
+              <span class="term">Check-in</span>
+              <span class="value">09/16/16 7:51 AM</span>
             </dl>
             <div class="footer-actions">
-              <figure class="trash"></figure>
-              <figure class="print"></figure>
+              <figure class="icon delete"></figure>
+              <figure class="icon print"></figure>
             </div>
           </div>
         </div>
-        <div id="schedule-container">
+        <div id="schedule-container" class="tile">
           <div class="info-header">
             <h2>Sunday</h2>
             <span>July 15, 2018</span>
@@ -52,6 +62,11 @@
               <div class="event-container">
                 <p class="event-location">BR1058 Exchange Search and knowledge discovery until Storage Technologies</p>
                 <p class="event-time">08:00 AM - 08:45 AM</p>
+                <div class="event-actions">
+                  <figure class="icon edit"></figure>
+                  <figure class="icon delete"></figure>
+                </div>
+
               </div>
             </div>
             <div class="itinerary-item">
@@ -60,6 +75,10 @@
               <div class="event-container">
                 <p class="event-location">BR1058 Exchange Search and knowledge discovery until Storage Technologies</p>
                 <p class="event-time">08:00 AM - 08:45 AM</p>
+                <div class="event-actions">
+                  <figure class="icon edit"></figure>
+                  <figure class="icon delete"></figure>
+                </div>
               </div>
             </div>
             <div fillable class="itinerary-item">
@@ -68,6 +87,10 @@
               <div class="event-container">
                 <p class="event-location">BR1058 Exchange Search and knowledge discovery until Storage Technologies</p>
                 <p class="event-time">08:00 AM - 08:45 AM</p>
+                <div class="event-actions">
+                  <figure class="icon edit"></figure>
+                  <figure class="icon delete"></figure>
+                </div>
               </div>
             </div>
             <div class="itinerary-item">
@@ -76,6 +99,10 @@
               <div class="event-container">
                 <p class="event-location">BR1058 Exchange Search and knowledge discovery until Storage Technologies</p>
                 <p class="event-time">08:00 AM - 08:45 AM</p>
+                <div class="event-actions">
+                  <figure class="icon edit"></figure>
+                  <figure class="icon delete"></figure>
+                </div>
               </div>
             </div>
             <div fillable class="itinerary-item">
@@ -84,62 +111,172 @@
               <div class="event-container">
                 <p class="event-location">BR1058 Exchange Search and knowledge discovery until Storage Technologies</p>
                 <p class="event-time">08:00 AM - 08:45 AM</p>
+                <div class="event-actions">
+                  <figure class="icon edit"></figure>
+                  <figure class="icon delete"></figure>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section id="file-section">
+      <section id="file-section"  class="tile">
         <div class="table-header">
           <div class="header-item table-1">
-            <figure unchecked class="checkbox"></figure>
+            <figure unchecked class="icon checkbox"></figure>
           </div>
-          <div class="header-item table-3">
+          <div class="header-item table-2">
             <p>File Name</p>
           </div>
-          <div class="header-item table-1">
+          <div class="header-item table-2">
             <p>File Type</p>
           </div>
           <div class="header-item table-2">
             <p>File Create Date</p>
           </div>
-          <div class="header-item table-1">
+          <div class="header-item table-2">
             <p>Published Status</p>
           </div>
-          <div class="header-item table-2">
+          <div class="header-item table-3">
             <p>Session Name</p>
           </div>
-          <div class="header-item table-1">
+          <div class="header-item table-2">
             <p>Session Code</p>
           </div>
-          <div class="header-item table-1">
+          <div class="header-item table-2">
             <p>Session Status</p>
           </div>
         </div>
         <div class="table-body">
-          <div class="body-item table-1">
-            <figure unchecked class="checkbox"></figure>
+          <div class="table-row">
+            <div unchecked class="body-item table-1">
+              <figure class="icon checkbox"></figure>
+            </div>
+            <div class="body-item table-2">
+              <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Presentation</p>
+            </div>
+            <div class="body-item table-2">
+              <p>September 06, 2017 | 02:40 PM</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Not Published</p>
+            </div>
+            <div class="body-item table-3">
+              <p>Reject Data integration until Column-oriented databases</p>
+            </div>
+            <div class="body-item table-2">
+              <p>BR1000</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Accepted</p>
+            </div>
           </div>
-          <div class="body-item table-3">
-            <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+          <div class="table-row">
+            <div unchecked class="body-item table-1">
+              <figure class="icon checkbox"></figure>
+            </div>
+            <div class="body-item table-2">
+              <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Presentation</p>
+            </div>
+            <div class="body-item table-2">
+              <p>September 06, 2017 | 02:40 PM</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Not Published</p>
+            </div>
+            <div class="body-item table-3">
+              <p>Reject Data integration until Column-oriented databases</p>
+            </div>
+            <div class="body-item table-2">
+              <p>BR1000</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Accepted</p>
+            </div>
           </div>
-          <div class="body-item table-1">
-            <p>Presentation</p>
+          <div class="table-row">
+            <div unchecked class="body-item table-1">
+              <figure class="icon checkbox"></figure>
+            </div>
+            <div class="body-item table-2">
+              <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Presentation</p>
+            </div>
+            <div class="body-item table-2">
+              <p>September 06, 2017 | 02:40 PM</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Not Published</p>
+            </div>
+            <div class="body-item table-3">
+              <p>Reject Data integration until Column-oriented databases</p>
+            </div>
+            <div class="body-item table-2">
+              <p>BR1000</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Accepted</p>
+            </div>
           </div>
-          <div class="body-item table-2">
-            <p>September 06, 2017 | 02:40 PM</p>
+          <div class="table-row">
+            <div unchecked class="body-item table-1">
+              <figure class="icon checkbox"></figure>
+            </div>
+            <div class="body-item table-2">
+              <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Presentation</p>
+            </div>
+            <div class="body-item table-2">
+              <p>September 06, 2017 | 02:40 PM</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Not Published</p>
+            </div>
+            <div class="body-item table-3">
+              <p>Reject Data integration until Column-oriented databases</p>
+            </div>
+            <div class="body-item table-2">
+              <p>BR1000</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Accepted</p>
+            </div>
           </div>
-          <div class="body-item table-1">
-            <p>Not Published</p>
-          </div>
-          <div class="body-item table-2">
-            <p>Reject Data integration until Column-oriented databases</p>
-          </div>
-          <div class="body-item table-1">
-            <p>BR1000</p>
-          </div>
-          <div class="body-item table-1">
-            <p>Accepted</p>
+          <div class="table-row">
+            <div unchecked class="body-item table-1">
+              <figure class="icon checkbox"></figure>
+            </div>
+            <div class="body-item table-2">
+              <p>New Microsoft PowerPoint 12313231MvB.pptx</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Presentation</p>
+            </div>
+            <div class="body-item table-2">
+              <p>September 06, 2017 | 02:40 PM</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Not Published</p>
+            </div>
+            <div class="body-item table-3">
+              <p>Reject Data integration until Column-oriented databases</p>
+            </div>
+            <div class="body-item table-2">
+              <p>BR1000</p>
+            </div>
+            <div class="body-item table-2">
+              <p>Accepted</p>
+            </div>
           </div>
         </div>
       </section>
