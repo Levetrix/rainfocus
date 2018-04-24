@@ -6,23 +6,57 @@ $red: #e13a5d;
 
 /*    border-image-source: linear-gradient(to right,#7d3791,#e13a5d);*/
 
-$tablet: 720px;
+$tablet: 760px;
 $desktop: 1050px;
 
-$edit: url("../assets/ic_mode_edit_black_24px.svg");
-$delete: url("../assets/ic_delete_black_24px.svg");
-$print: url("../assets/ic_print_black_24px.svg");
+$icons:
+  rf 'url("../assets/rainfocuslogoicon.svg")',
+  edit 'url("../assets/ic_mode_edit_black_24px.svg")',
+  delete 'url("../assets/ic_delete_black_24px.svg")',
+  print 'url("../assets/ic_print_black_24px.svg")',
+  menu 'url("../assets/ic_menu_white_24px.svg")',
+  search 'url("../assets/ic_search_white_24px.svg")',
+  history 'url("../assets/ic_history_white_24px.svg")',
+  home 'url("../assets/ic_home_white_24px.svg")',
+  explore 'url("../assets/ic_explore_white_24px.svg")',
+  contacts 'url("../assets/ic_import_contacts_white_24px.svg")',
+  desktop 'url("../assets/ic_desktop_windows_white_24px.svg")',
+  groups 'url("../assets/ic_group_white_24px.svg")',
+  folders 'url("../assets/ic_folder_white_24px.svg")',
+  e 'url("../assets/ic_indeterminate_check_box_white_24px.svg")',
+  pages 'url("../assets/ic_import_contacts_white_24px.svg")',
+  business 'url("../assets/ic_business_white_24px.svg")',
+  graph 'url("../assets/ic_graphic_eq_white_24px.svg")',
+  arrow 'url("../assets/ic_chevron_right_white_24px.svg")';
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@each $icon in $icons {
+  $key: nth($icon, 1);
+  $value: nth($icon, 2);
+
+  .#{$key} {
+    -webkit-mask-image: #{$value};
+    mask-image: #{$value};
+    background-color: $lightgrey;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700');
 
 //reset css
 body, body * {
-  font-family: 'Roboto';
+  font-family: 'Open Sans';
   font-weight: 200;
   color: $grey;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+a,
+a *,
+a:visited {
+  text-decoration: none;
+  color: white;
 }
 
 body {
@@ -33,20 +67,11 @@ body {
   display: inline-block;
   height:24px;
   width:24px;
-  opacity: .4;
   cursor: pointer;
-}
 
-.edit {
-  background-image: $edit;
-}
-
-.delete {
-  background-image: $delete;
-}
-
-.print {
-  background-image: $print;
+  &.faded {
+    opacity: .7;
+  }
 }
 
 //grid
@@ -65,14 +90,223 @@ body {
   }
 }
 
-.tile {
-  background-color: white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+/****** Menu ******/
+
+nav {
+  background: linear-gradient(to bottom left, $red, $purple);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.19), 0 3px 3px rgba(0,0,0,0.23);
+  padding: 1rem;
+
+  & .icon {
+    background-color: white;
+    margin-right: 1rem;
+  }
+
+  & .menu-text {
+    display: none;
+  }
+
+  & #navHead {
+
+    & a {
+      vertical-align: top;
+      display: inline-block;
+    }
+
+    & .rf {
+      height: 22px;
+    }
+
+    & .menu-container {
+      float: right;
+    }
+  }
+
+  &[active] {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    & #navHead {
+      flex-basis:0;
+    }
+
+    & #navBody {
+      height: auto;
+      flex-basis: 0;
+      flex-grow: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 1rem;
+
+      & .menu-item {
+        flex-grow: 1;
+        width: 30%;
+        text-align: center;
+        padding: .5rem;
+
+        &.home-container {
+          width: 100%;
+        }
+
+        & figure {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: 1rem;
+        }
+
+        & span {
+          display: inline-block;
+          font-size: .85em;
+        }
+      }
+    }
+  }
 }
+
+#navBody {
+  height: 0;
+  overflow: hidden;
+}
+
+#nav-expand {
+  display: none;
+}
+
+@media only screen and (min-width: $tablet) {
+  #main-content {
+    margin-left: 5.5rem;
+    transition: margin-left .3s ease-out;
+  }
+
+  nav[active] {
+    max-width: 10em;
+
+    & + #main-content {
+      margin-left: 11rem;
+    }
+
+    & #navBody,
+    & #navHead {
+      justify-content: flex-start;
+      flex-direction: column;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+
+      & .menu-item {
+        width: auto;
+        padding: 0;
+        flex-grow: 0;
+        text-align: left;
+
+        & figure {
+          margin-right: 1.5rem;
+          margin-bottom: 0;
+        }
+
+        & .menu-text {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    & #nav-expand figure {
+      transform: rotate(180deg);
+    }
+  }
+
+  nav {
+    background: linear-gradient(to bottom, $red, $purple);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    max-width: 4.5rem;
+    padding: 0;
+    height: 100vh;
+    transition: max-width .3s ease-out;
+
+    #navHead {
+      flex-direction: column;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      border-bottom: 1px solid $lightgrey;
+      flex-basis: 0;
+      flex-grow: 0;
+
+      & .menu-item {
+        margin-bottom: 1.5rem;
+      }
+
+      & .menu-container {
+        display: none;
+      }
+    }
+
+    #navBody,
+    #navHead {
+      padding: 1.5rem 1.5rem 0 1.5rem;
+      flex-grow: 1;
+      flex-basis: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+
+      &#navHead {
+        flex-grow: 0;
+        flex-basis: auto;
+      }
+
+      & .menu-item {
+        padding: 0;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        width: auto;
+        display: flex;
+        overflow-x: hidden;
+
+        &.menu-container {
+          display: none;
+        }
+
+        & .icon {
+          flex-grow: 0;
+          flex-basis: 0;
+          min-width: 24px;
+          margin-right:1.5rem;
+        }
+
+        & .menu-text {
+          display: inline-block;
+          flex-grow: 1;
+          flex-basis: 0;
+        }
+      }
+    }
+
+    & #nav-expand {
+      display: initial;
+      padding: .5rem 1.5rem .5rem 1.5rem;
+      border-top: 1px solid white;
+
+      & .arrow {
+        transition: transform .2s ease-out;
+      }
+    }
+  }
+}
+
+/****** Main Content ******/
 
 #main-content {
   padding: 1rem;
   overflow: hidden;
+}
+
+.tile {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 #badge-container,
@@ -190,7 +424,7 @@ body {
            background-color: $red;
          }
 
-        &.edit {
+        /*&.edit {
           -webkit-mask-image: $edit;
           mask-image: $edit;
         }
@@ -198,7 +432,7 @@ body {
         &.delete {
           -webkit-mask-image: $delete;
           mask-image: $delete;
-        }
+        }*/
 
        }
      }
