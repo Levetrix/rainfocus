@@ -6,7 +6,8 @@ $red: #e13a5d;
 
 /*    border-image-source: linear-gradient(to right,#7d3791,#e13a5d);*/
 
-$tablet: 680px;
+$tablet: 720px;
+$desktop: 1050px;
 
 $edit: url("../assets/ic_mode_edit_black_24px.svg");
 $delete: url("../assets/ic_delete_black_24px.svg");
@@ -141,95 +142,95 @@ body {
   }
 }
 
- #schedule-container  {
-   font-size: .9rem;
+#schedule-container  {
+ font-size: .9rem;
 
-   & .itinerary-container {
-     padding: 0;
+ & .itinerary-container {
+   padding: 0;
+ }
+
+ & .itinerary-item {
+   padding: 1rem 1rem;
+   border-bottom: 1px solid $lightgrey;
+
+   & span {
+     display: inline-block;
+     font-weight: 700;
+     color: #777;
+     position: relative;
+     margin-bottom: .55rem;
+
+     &:after {
+       display: block;
+       content: "";
+       position: absolute;
+       bottom: -.25rem;
+       left: 0;
+       width: 100%;
+       height: 2px;
+       background-color: $red;
+     }
    }
 
-   & .itinerary-item {
-     padding: 1rem 1rem;
-     border-bottom: 1px solid $lightgrey;
+   & div {
+     display: block;
+     position: relative;
 
-     & span {
-       display: inline-block;
-       font-weight: 700;
-       color: #666;
-       position: relative;
-       margin-bottom: .55rem;
+     & .event-actions {
+       display: block;
 
-       &:after {
-         display: block;
-         content: "";
-         position: absolute;
-         bottom: -.25rem;
-         left: 0;
-         width: 100%;
-         height: 2px;
-         background-color: $red;
+       & .icon {
+         margin: .25rem .25rem 0 0;
+         background-image: none;
+         background-color: $purple;
+         transition: all .15s ease;
+         opacity: 1;
+
+         &:hover {
+           background-color: $red;
+         }
+
+        &.edit {
+          -webkit-mask-image: $edit;
+          mask-image: $edit;
+        }
+
+        &.delete {
+          -webkit-mask-image: $delete;
+          mask-image: $delete;
+        }
+
        }
      }
 
+     & .event-location {
+       margin-bottom: .25rem;
+     }
+
+     & .event-time {
+       font-size: .7rem;
+     }
+   }
+
+   & a {
+     display: none;
+     color: $lightpurple;
+     text-decoration: none;
+     font-weight: 400;
+   }
+
+   &[fillable] {
+
      & div {
-       display: block;
-       position: relative;
-
-       & .event-actions {
-         display: block;
-
-         & .icon {
-           margin: .25rem .25rem 0 0;
-           background-image: none;
-           background-color: $purple;
-           transition: all .15s ease;
-           opacity: 1;
-
-           &:hover {
-             background-color: $red;
-           }
-
-          &.edit {
-            -webkit-mask-image: $edit;
-            mask-image: $edit;
-          }
-
-          &.delete {
-            -webkit-mask-image: $delete;
-            mask-image: $delete;
-          }
-
-         }
-       }
-
-       & .event-location {
-         margin-bottom: .25rem;
-       }
-
-       & .event-time {
-         font-size: .7rem;
-       }
+       display: none;
      }
 
      & a {
-       display: none;
-       color: $lightpurple;
-       text-decoration: none;
-       font-weight: 400;
-     }
-
-     &[fillable] {
-
-       & div {
-         display: none;
-       }
-
-       & a {
-         display: block;
-       }
+       display: block;
      }
    }
  }
+}
 
 #file-section {
   overflow-x: scroll;
@@ -259,7 +260,8 @@ body {
 
 .header-item {
   padding-top: 1rem;
-  padding-bottom: .25rem;
+  padding-bottom: .5rem;
+  align-self: center;
 
   & p {
     font-weight: 700;
@@ -279,5 +281,81 @@ body {
     opacity: 1;
     margin-left: .5rem;
     margin-top: .5rem;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  #info-section {
+    display: flex;
+    width: 100%;
+
+    & #badge-container {
+      margin-right: 2rem;
+      flex-grow: 1;
+      align-self: flex-start;
+      width: 200px;
+      max-width: 400px;
+    }
+
+    & #schedule-container {
+      width: 200px;
+      flex-grow: 2;
+      align-self: flex-start;
+
+      & .itinerary-item {
+        display: flex;
+
+        & span {
+          margin-bottom: 0;
+          margin-right: 1rem;
+          align-self: flex-start;
+          flex-grow: 0;
+
+          &:after {
+            right: -.65rem;
+            top: 0;
+            bottom: initial;
+            left: initial;
+            height: 100%;
+            width: 2px;
+          }
+        }
+
+        & .event-container {
+          flex-grow: 1;
+          flex-basis: 0;
+
+          & .event-actions {
+            flex-grow: 0;
+          }
+
+          & article {
+
+          }
+        }
+
+        &:not([fillable]) {
+
+          & .event-container {
+            display: flex;
+
+            & article {
+              flex-grow: 1;
+              flex-basis: 0;
+            }
+
+            & .event-actions {
+              flex-grow: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  #file-section {
+    font-size: .9rem;
   }
 }
